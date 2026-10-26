@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VOICE OF THE WORKERS | STATE BROADCAST </title>
+    <!-- Google Fonts for bold Soviet Constructivist style typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href= "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Russo+One&family=Special+Elite&display=swap"  rel="stylesheet">
+    
+    <style>
+        :root {
+            --red-flag: #c01111;
+            --red-bright: #e61c1c;
+            --gold-star: #f5b700;
+            --ink-black: #111111;
+            --charcoal: #222222;
+            --paper-cream: #f4eee1;
+            --paper-dark: #e5dbca;
+        }
+
+        /* CRT Overlay Effect toggleable */
+        body.crt::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 999;
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--paper-cream);
+            color: var(--ink-black);
+             font-family : 'Special Elite', typewriter, monospace;
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        h1, h2, h3, .constructivist-font {
+             font-family : 'Russo One', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Top Propaganda Ticker */
+        .ticker-wrap {
+            width: 100%;
+            background-color: var(--ink-black);
+            color: var(--gold-star);
+            border-bottom: 4px solid var(--red-flag);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+             font-family : 'Bebas Neue', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: ticker 35s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* Main Header Banner */
+        header {
+            background-color: var(--red-flag);
+            color: var(--paper-cream);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+            border-bottom: 8px solid var(--ink-black);
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            text-shadow: 4px 4px 0px var(--ink-black);
+            line-height: 0.95;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: var(--ink-black);
+            color: var(--gold-star);
+            display: inline-block;
+            padding: 4px 16px;
+            transform: rotate(-2deg);
+        }
+
+        .controls {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-toggle {
+            background: var(--ink-black);
+            color: var(--paper-cream);
+            border: 2px solid var(--gold-star);
+            padding: 6px 12px;
+            cursor: pointer;
+             font-family : 'Russo One', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .btn-toggle:hover {
+            background: var(--gold-star);
+            color: var(--ink-black);
+        }
+
+        /* Container & Grid Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+         /* Diagonal Hero Feature */ 
+        .hero-banner {
+            background-color: var(--paper-dark);
+            border: 5px solid var(--ink-black);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 3rem;
+            box-shadow: 12px 12px 0px var(--red-flag);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-graphic {
+            background-color: var(--red-flag);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--paper-cream);
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+        }
+
+        @media (max-width: 768px) {
+            .hero-graphic {
+                clip-path: none;
+            }
+        }
+
+        .star-symbol {
+            font-size: 8rem;
+            color: var(--gold-star);
+            line-height: 1;
+            text-shadow: 6px 6px 0px var(--ink-black);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95) rotate(-5deg); }
+            100% { transform: scale(1.05) rotate(5deg); }
+        }
+
+        .hero-text {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            color: var(--red-flag);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+         /* Main Broadcast Feed Section */ 
+        .section-title {
+            background-color: var(--ink-black);
+            color: var(--paper-cream);
+            padding: 10px 20px;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            transform: skew(-10deg);
+            border-left: 8px solid var(--red-flag);
+        }
+
+        .propaganda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,  minmax (300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .poster-card {
+            background-color: var(--paper-cream);
+            border: 4px solid var(--ink-black);
+            padding: 1.5rem;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .poster-card:hover {
+            transform: translateY(-5deg) rotate(1deg);
+            box-shadow: 8px 8px 0px var(--red-flag);
+        }
+
+        .poster-card::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0;
+            border-width: 0 40px 40px 0;
+            border-style: solid;
+            border-color: var(--red-flag) var(--paper-cream);
+        }
+
+        .card-tag {
+            background-color: var(--gold-star);
+            color: var(--ink-black);
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            width: fit-content;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .poster-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--ink-black);
+        }
+
+        .poster-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+         .broadcast-btn  {
+            background-color: var(--red-flag);
+            color: var(--paper-cream);
+            border: none;
+            padding: 10px 15px;
+             font-family : 'Russo One', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+         .broadcast-btn :hover {
+            background-color: var(--ink-black);
+            color: var(--gold-star);
+        }
+
+        /* Production Metrics Table (Five-Year Plan Progress) */
+        .plan-section {
+            background-color: var(--charcoal);
+            color: var(--paper-cream);
+            padding: 2.5rem;
+            border: 4px solid var(--ink-black);
+            margin-bottom: 3rem;
+            box-shadow: 10px 10px 0px var(--gold-star);
+        }
+
+        .plan-section h2 {
+            color: var(--gold-star);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-row {
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 5px;
+             font-family : 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background-color: #444;
+            border: 2px solid var(--paper-cream);
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red-flag), var(--gold-star));
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+
+        /* Interactive Radio Dispatch Form */
+        .dispatch-box {
+            background-color: var(--paper-dark);
+            border: 4px dashed var(--ink-black);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .dispatch-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+             font-family : 'Russo One', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--ink-black);
+            background-color: var(--paper-cream);
+             font-family : 'Special Elite', monospace;
+            font-size: 1rem;
+        }
+
+        /* Modal Alert */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--paper-cream);
+            border: 8px solid var(--red-flag);
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(230, 28, 28, 0.5);
+        }
+
+        .modal-content h2 {
+            font-size: 2.2rem;
+            color: var(--red-flag);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ink-black);
+            color: var(--paper-cream);
+            text-align: center;
+            padding: 2rem;
+            border-top: 6px solid var(--red-flag);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="crt">
+
+      
+    <div class="ticker-wrap">
+        <div class="ticker">
+            ★ OFFICIAL STATE DISPATCH ★ FIVE-YEAR PLAN REACHED IN FOUR YEARS! ★ TRACTOR PRODUCTION UP 340% ★ GLORY TO THE WORKERS OF THE WORLD ★ ALL POWER TO THE SOVIETS ★ BEWARE OF CAPITALIST SABOTEURS ★ KNOWLEDGE IS OUR WEAPON ★ 
+            ★ OFFICIAL STATE DISPATCH ★ FIVE-YEAR PLAN REACHED IN FOUR YEARS! ★ TRACTOR PRODUCTION UP 340% ★ GLORY TO THE WORKERS OF THE WORLD ★ ALL POWER TO THE SOVIETS ★ BEWARE OF CAPITALIST SABOTEURS ★ KNOWLEDGE IS OUR WEAPON ★
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="controls">
+            <button class="btn-toggle" onclick="toggleCRT()">Toggle Scanlines</button>
+        </div>
+        <div class="header-content">
+            <h1>TEGRAPH AGENCY OF THE SOVIET UNION</h1>
+            <p> CENTRAL COMMITTEE BROADCAST DIVISION — BULLETIN #1917 </p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero Constructivist Banner -->
+        <section class="hero-banner">
+            <div class="hero-graphic">
+                <div class="star-symbol">★</div>
+                <h2 style="color: var(--gold-star); text-align: center;">FORWARD TO VICTORY!</h2>
+            </div>
+            <div class="hero-text">
+                <h2>THE WORKFORCE UNITES</h2>
+                <p> Comrades! The electrification of the entire country proceedeth with unprecedented momentum. Steel production in Magnetogorsk exceeds all imperial-era calculations. Stand vigilant against bourgeois distortion! </p>
+                <br>
+                <button class= "broadcast-btn"  onclick= "triggerStateAlert('NATIONAL ADDRESS', 'Comrades! By decree of the Supreme Soviet, tomorrow\'s labor shift shall begin 30 minutes earlier to celebrate our Record Harvest in the Kuban region!')" > LISTEN TO TRANSMISSION </button>
+            </div>
+        </section>
+
+        <!-- Main Propaganda Bulletins -->
+        <h2 class="section-title">DAILY AGITPROP DISPATCHES</h2>
+        <section class="propaganda-grid">
+            
+            <!-- Card 1 -->
+            <div class="poster-card">
+                <div>
+                    <div class="card-tag">Bulletin #402</div>
+                    <h3>HEROES OF STAKHANOVITE LABOR</h3>
+                    <p> Ourr Alexei Stakhanov has extracted 102 tons of coal in a single shift, exceeding the quota by 14 times! Follow his revolutionary enthusiasm in our local factory! </p>
+                </div>
+                <button class= "broadcast-btn"  onclick= "triggerStateAlert('STAKHANOVITE DISPATCH', 'Read the full guide on how to optimize pneumatic drill efficiency by 400% in our collective enterprise!')" >PLEDGE OVER-QUOTA</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="poster-card">
+                <div>
+                    <div class="card-tag">Education Directive</div>
+                    <h3>LIQUIDATE ILLITERACY!</h3>
+                    <p>Knowledge breaks the chains of feudal oppression. Over 10,000 new reading rooms (Izba-chital'nya) have been opened across the rural republics!</p>
+                </div>
+                <button class= "broadcast-btn"  onclick= "triggerStateAlert('CULTURAL FRONT', 'Every worker a reader, every reader a builder of the new social order! Report to our local library today.')" >JOIN READERS BRIGADE</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="poster-card">
+                <div>
+                    <div class="card-tag">Vigilance Notice</div>
+                    <h3>LOOSE LIPS AID THE CAPITALISTS</h3>
+                    <p>Keep state industrial secrets secure. Be alert to foreign agents attempting to sabotage our collective farm mechanization programs!</p>
+                </div>
+                <button class= "broadcast-btn"  onclick= "triggerStateAlert('SECURITY NOTICE', 'Vigilance is the weapon of the proletariat! Report any suspicious inquiries regarding heavy machinery output immediately.')" > REPORT SUSPICIOUS ACTIVITY </button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="poster-card">
+                <div>
+                    <div class="card-tag">Space & Science</div>
+                    <h3>CONQUEST OF THE COSMOS</h3>
+                    <p>Our Soviet scientists prepare the foundations for mankind's ascension beyond Earth's atmosphere. Socialist engineering recognizes no boundaries!</p>
+                </div>
+                <button class= "broadcast-btn"  onclick= "triggerStateAlert('COSMIC ACADEMY', 'The Academy of Sciences reports major advancements in multi-stage rocketry testings in Kazakstan.')" >INSPECT ROCKET DESIGNS</button>
+            </div>
+
+        </section>
+
+        <!-- Five-Year Plan Progress Metrics -->
+        <section class="plan-section">
+            <h2>STATE PRODUCTION METRICS (5-YEAR PLAN)</h2>
+            
+            <div class="metric-row">
+                <div class="metric-label">
+                    <span>HEAVY HEAVY MACHINERY & TRACTORS</span>
+                    <span>142% OF QUOTA</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-progress="100%"></div>
+                </div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-label">
+                    <span>GOELRO ELECTRIFICATION GRID</span>
+                    <span>98% COMPLETED</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-progress="98%"></div>
+                </div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-label">
+                    <span>COLLECTIVE GRAIN HARVEST (METRIC TONS)</span>
+                    <span>115% OF QUOTA</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-progress="100%"></div>
+                </div>
+            </div>
+        </section>
+
+          
+        <section class="dispatch-box">
+            <h2> SEND TELEGRAM TO THE PEOPLE'S COMMISSARIAT </h2>
+            <form id="telegramForm"  onsubmit = "handleTelegramSubmit(event)" >
+                <div class="form-group">
+                    <label for="comradeName">COMRADE NAME & FACTORY NUMBER:</label>
+                    <input type="text" id="comradeName" placeholder="e.g. Comrade Ivan, Factory No. 24" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"> PLEDGE OR SUGGESTION FOR IMPROVEMENT: </label>
+                    <textarea id="message" rows="3" placeholder= "Write our pledge to exceed steel targets..."  required></textarea>
+                </div>
+                <button type= "submit"  class= "broadcast-btn" > TRANSMIT TELEGRAM VIA TELEGRAPH </button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- Modal Alert Window -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">STATE ANNOUNCEMENT</h2>
+            <p id="modalBody">Content goes here...</p>
+            <button class= "broadcast-btn"  onclick="closeModal()"> ACKNOWLEDGE & RETURN TO WORK </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><b> STATE BROADCAST NETWORK — PUBLISHED BY AUTHORITY OF THE CENTRAL EXECUTIVE COMMITTEE </b></p>
+        <p>WORKERS OF THE WORLD, UNITE!</p>
+    </footer>
+
+    <script>
+        // Animate Progress Bars on Load
+        window.addEventListener('load', () => {
+            const fills = document.querySelectorAll('.progress-fill');
+            fills.forEach(fill => {
+                const target = fill.getAttribute('data-progress');
+                setTimeout(() => {
+                    fill.style.width = target;
+                }, 300);
+            });
+        });
+
+        // Toggle Scanlines Effect
+        function toggleCRT() {
+            document.body.classList.toggle('crt');
+        }
+
+        // Display Propaganda Modal Alert
+        function triggerStateAlert(title, message) {
+            document.getElementById('modalTitle').innerText = '★ ' + title + ' ★';
+            document.getElementById('modalBody').innerText = message;
+            document.getElementById('alertModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('alertModal').style.display = 'none';
+        }
+
+         // Form Submit Handler 
+        function  handleTelegramSubmit (event) {
+            event.preventDefault();
+            const name = document.getElementById('comradeName').value;
+            triggerStateAlert(
+                'TELEGRAM RECEIVED', 
+                `Salutations, ${name} ! Our pledge has been logged by the Commissariat of Production. Stay steadfast at our post!` 
+            );
+            document.getElementById('telegramForm').reset();
+        }
+    </script>
+</body>
+</html>
